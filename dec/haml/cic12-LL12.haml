@@ -1,0 +1,115 @@
+!!! 5
+%html
+  %head
+    %title= "www.rkmathi.net - cic12"
+    %meta{ :content => "Ryuichi KAWAMATA", :name => "author" }
+    %link{ :href => "/css/base.css", :rel => "stylesheet" }
+
+  %body
+    %header
+      %h1
+        %a{ :href => "http://www.rkmathi.net" }= "www.rkmathi.net"
+
+    %section
+      %article
+        %h2= "cic12"
+
+        %h2= "Lossy Lv.1 png 91.0% (3,688 KB)"
+        %a{ :href => "cic12-LL02.html" }= "Lossless png"
+        %a{ :href => "cic12-LL12.html" }= "Lossy Lv.1 png"
+        %a{ :href => "cic12-LL22.html" }= "Lossy Lv.2 png"
+
+        %hr
+
+        %p
+          %canvas{ :id => "c1", :width => 640, :height => "480"}
+          :javascript
+            window.addEventListener("load", function() {
+              var canvas = document.getElementById('c1');
+              if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+                var img = new Array();
+                var imgDat = new Array();
+                var imgAry = [
+                'LL12/00000000.png',
+                'LL12/000000_.png',
+                'LL12/000001_.png',
+                'LL12/000002_.png',
+                'LL12/000003_.png',
+                'LL12/000004_.png',
+                'LL12/000005_.png',
+                'LL12/000006_.png',
+                'LL12/000007_.png',
+                'LL12/000008_.png',
+                'LL12/000009_.png',
+                'LL12/000010_.png',
+                'LL12/000011_.png',
+                'LL12/000012_.png',
+                'LL12/000013_.png',
+                'LL12/000014_.png',
+                'LL12/000015_.png',
+                'LL12/000016_.png',
+                'LL12/000017_.png',
+                'LL12/000018_.png',
+                'LL12/000019_.png',
+                'LL12/000020_.png',
+                'LL12/000021_.png',
+                'LL12/000022_.png',
+                'LL12/000023_.png',
+                'LL12/000024_.png',
+                'LL12/000025_.png',
+                'LL12/000026_.png',
+                'LL12/000027_.png',
+                'LL12/000028_.png',
+                'LL12/000029_.png',
+                'LL12/000030_.png',
+                'LL12/000031_.png',
+                'LL12/000032_.png',
+                'LL12/000033_.png',
+                'LL12/000034_.png',
+                'LL12/000035_.png',
+                'LL12/000036_.png',
+                'LL12/000037_.png',
+                'LL12/000038_.png',
+                'LL12/000039_.png',
+                'LL12/000040_.png',
+                'LL12/000041_.png',
+                'LL12/000042_.png',
+                'LL12/000043_.png',
+                'LL12/000044_.png',
+                ];
+
+                for (var i in imgAry) {
+                  img[i] = new Image();
+                  img[i].src = imgAry[i];
+                }
+
+                ctx.drawImage(img[0], 0, 0);
+                imgDat[0] = ctx.getImageData(0, 0, img[0].width, img[0].height);
+                for (var i in imgAry) {
+                  if (i == 0) continue;
+                  console.log(i);
+                  ctx.clearRect(0, 0, 640, 480);
+                  ctx.putImageData(imgDat[i-1], 0, 0);
+                  ctx.drawImage(img[i], 0, 0);
+                  imgDat[i] = ctx.getImageData(0, 0, img[0].width, img[0].height);
+                }
+
+                ctx.clearRect(0, 0, 640, 480);
+
+                n = 0;
+                setInterval(function() {
+                  console.log(n);
+                  ctx.clearRect(0, 0, 640, 480);
+                  ctx.putImageData(imgDat[n], 0, 0);
+                  (++n<imgDat.length) ? n : n=0;
+                }, 50);
+              }
+            }, false);
+
+        %hr
+
+    %footer
+      %p= "Copyright 2013 Ryuichi KAWAMATA"
+

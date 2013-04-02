@@ -1,0 +1,169 @@
+!!! 5
+%html
+  %head
+    %title= "www.rkmathi.net - cic12"
+    %meta{ :content => "Ryuichi KAWAMATA", :name => "author" }
+    %link{ :href => "/css/base.css", :rel => "stylesheet" }
+
+  %body
+    %header
+      %h1
+        %a{ :href => "http://www.rkmathi.net" }= "www.rkmathi.net"
+
+    %section
+      %article
+        %h2= "cic12"
+
+        %h2= "Lossless png 119.7% (9,712 KB)"
+        %a{ :href => "cic12-LL0.html" }= "Lossless png"
+        %a{ :href => "cic12-LL1.html" }= "Lossy Lv.1 png"
+        %a{ :href => "cic12-LL2.html" }= "Lossy Lv.2 png"
+
+        %hr
+
+        %p
+          %canvas{ :id => "c1", :width => 640, :height => "480"}
+          :javascript
+            window.addEventListener("load", function() {
+              var canvas = document.getElementById('c1');
+              if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+                var img = new Array();
+                var imgDat = new Array();
+                var imgAry = [
+                'LL0/00000581.png',
+                'LL0/000581_.png',
+                'LL0/000582_.png',
+                'LL0/000583_.png',
+                'LL0/000584_.png',
+                'LL0/000585_.png',
+                'LL0/000586_.png',
+                'LL0/000587_.png',
+                'LL0/000588_.png',
+                'LL0/000589_.png',
+                'LL0/000590_.png',
+                'LL0/000591_.png',
+                'LL0/000592_.png',
+                'LL0/000593_.png',
+                'LL0/000594_.png',
+                'LL0/000595_.png',
+                'LL0/000596_.png',
+                'LL0/000597_.png',
+                'LL0/000598_.png',
+                'LL0/000599_.png',
+                'LL0/000600_.png',
+                'LL0/000601_.png',
+                'LL0/000602_.png',
+                'LL0/000603_.png',
+                'LL0/000604_.png',
+                'LL0/000605_.png',
+                'LL0/000606_.png',
+                'LL0/000607_.png',
+                'LL0/000608_.png',
+                'LL0/000609_.png',
+                'LL0/000610_.png',
+                'LL0/000611_.png',
+                'LL0/000612_.png',
+                'LL0/000613_.png',
+                'LL0/000614_.png',
+                'LL0/000615_.png',
+                'LL0/000616_.png',
+                'LL0/000617_.png',
+                'LL0/000618_.png',
+                'LL0/000619_.png',
+                'LL0/000620_.png',
+                'LL0/000621_.png',
+                'LL0/000622_.png',
+                'LL0/000623_.png',
+                'LL0/000624_.png',
+                'LL0/000625_.png',
+                'LL0/000626_.png',
+                'LL0/000627_.png',
+                'LL0/000628_.png',
+                'LL0/000629_.png',
+                'LL0/000630_.png',
+                'LL0/000631_.png',
+                'LL0/000632_.png',
+                'LL0/000633_.png',
+                'LL0/000634_.png',
+                'LL0/000635_.png',
+                'LL0/000636_.png',
+                'LL0/000637_.png',
+                'LL0/000638_.png',
+                'LL0/000639_.png',
+                'LL0/000640_.png',
+                'LL0/000641_.png',
+                'LL0/000642_.png',
+                'LL0/000643_.png',
+                'LL0/000644_.png',
+                'LL0/000645_.png',
+                'LL0/000646_.png',
+                'LL0/000647_.png',
+                'LL0/000648_.png',
+                'LL0/000649_.png',
+                'LL0/000650_.png',
+                'LL0/000651_.png',
+                'LL0/000652_.png',
+                'LL0/000653_.png',
+                'LL0/000654_.png',
+                'LL0/000655_.png',
+                'LL0/000656_.png',
+                'LL0/000657_.png',
+                'LL0/000658_.png',
+                'LL0/000659_.png',
+                'LL0/000660_.png',
+                'LL0/000661_.png',
+                'LL0/000662_.png',
+                'LL0/000663_.png',
+                'LL0/000664_.png',
+                'LL0/000665_.png',
+                'LL0/000666_.png',
+                'LL0/000667_.png',
+                'LL0/000668_.png',
+                'LL0/000669_.png',
+                'LL0/000670_.png',
+                'LL0/000671_.png',
+                'LL0/000672_.png',
+                'LL0/000673_.png',
+                'LL0/000674_.png',
+                'LL0/000675_.png',
+                'LL0/000676_.png',
+                'LL0/000677_.png',
+                'LL0/000678_.png',
+                'LL0/000679_.png',
+                ];
+
+                for (var i in imgAry) {
+                  img[i] = new Image();
+                  img[i].src = imgAry[i];
+                }
+
+                ctx.drawImage(img[0], 0, 0);
+                imgDat[0] = ctx.getImageData(0, 0, img[0].width, img[0].height);
+                for (var i in imgAry) {
+                  if (i == 0) continue;
+                  console.log(i);
+                  ctx.clearRect(0, 0, 640, 480);
+                  ctx.putImageData(imgDat[i-1], 0, 0);
+                  ctx.drawImage(img[i], 0, 0);
+                  imgDat[i] = ctx.getImageData(0, 0, img[0].width, img[0].height);
+                }
+
+                ctx.clearRect(0, 0, 640, 480);
+
+                n = 0;
+                setInterval(function() {
+                  console.log(n);
+                  ctx.clearRect(0, 0, 640, 480);
+                  ctx.putImageData(imgDat[n], 0, 0);
+                  (++n<imgDat.length) ? n : n=0;
+                }, 50);
+              }
+            }, false);
+
+        %hr
+
+    %footer
+      %p= "Copyright 2013 Ryuichi KAWAMATA"
+
