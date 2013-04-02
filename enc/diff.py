@@ -55,4 +55,3 @@ if __name__ == '__main__':
         sys.argv[4],        # input directory
         sys.argv[5]         # output directory
     )
-s
