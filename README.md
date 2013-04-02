@@ -2,4 +2,4 @@
 
 ## PNG Animation
 
-## [Demo][lab.rkmathi.net/pnganime]
+### Demo: http://lab.rkmathi.net/pnganime
